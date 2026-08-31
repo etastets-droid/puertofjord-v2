@@ -1,0 +1,83 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  *, *::before, *::after { box-sizing: border-box; }
+
+  html {
+    scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  body {
+    @apply bg-fjord-950 text-stone-100 font-sans;
+    overflow-x: hidden;
+  }
+
+  ::selection {
+    @apply bg-gold-500/30 text-stone-50;
+  }
+
+  ::-webkit-scrollbar { width: 4px; }
+  ::-webkit-scrollbar-track { @apply bg-fjord-950; }
+  ::-webkit-scrollbar-thumb { @apply bg-gold-500/40 rounded-full; }
+}
+
+@layer components {
+  .font-display {
+    font-family: 'Cormorant Garamond', Georgia, serif;
+  }
+
+  .nav-link {
+    @apply text-[0.65rem] tracking-[0.2em] uppercase text-stone-300/70 hover:text-gold-400 transition-colors duration-300;
+  }
+
+  .btn-primary {
+    @apply inline-block text-[0.65rem] tracking-[0.2em] uppercase bg-gold-500 text-fjord-950 px-8 py-4 hover:bg-gold-400 transition-colors duration-300 font-medium;
+  }
+
+  .btn-ghost {
+    @apply inline-block text-[0.65rem] tracking-[0.2em] uppercase border border-gold-500/40 text-gold-400 px-8 py-4 hover:border-gold-400 hover:text-gold-300 transition-colors duration-300;
+  }
+
+  .section-tag {
+    @apply text-[0.6rem] tracking-[0.3em] uppercase text-gold-500 font-sans font-light;
+  }
+
+  .display-xl {
+    @apply font-display text-5xl md:text-6xl lg:text-7xl font-light leading-[1.05];
+  }
+
+  .display-lg {
+    @apply font-display text-4xl md:text-5xl lg:text-6xl font-light leading-[1.08];
+  }
+
+  .display-md {
+    @apply font-display text-3xl md:text-4xl font-light leading-[1.1];
+  }
+
+  .body-lead {
+    @apply text-sm leading-8 text-stone-300/70 font-light tracking-wide;
+  }
+
+  .form-input {
+    @apply w-full bg-white/5 border border-white/10 text-stone-200 px-4 py-3 text-sm font-light 
+           placeholder:text-stone-500 focus:outline-none focus:border-gold-500/50 transition-colors;
+  }
+
+  .form-label {
+    @apply block text-[0.6rem] tracking-[0.2em] uppercase text-stone-400 mb-2;
+  }
+}
+
+/* Fade in on scroll — triggered by JS */
+.reveal {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.9s ease, transform 0.9s ease;
+}
+.reveal.visible {
+  opacity: 1;
+  transform: none;
+}
